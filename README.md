@@ -16,9 +16,6 @@ This project provides a flexible training pipeline for codon optimization across
 
 Supported species:
 - `homosapiens`
-- `ecoli`
-- `yeast`
-- `musculus`
 
 ---
 
@@ -28,11 +25,18 @@ Supported species:
 project/
  ├── data/
  │    └── homosapiens/
+ │         ├── homosapiens.faa
+ │         └── homosapiens.pkl
  ├── models/
- ├── src/
- ├── logs/
- ├── train.py
- └── README.md
+ │    └── coformer.py
+ ├── README.md
+ ├── analyzer.py
+ ├── dataset.py
+ ├── dicts_7.py
+ ├── experiment.py
+ ├── optimizer.py
+ ├── trainer.py
+ └── utils.py
 ```
 
 ---
@@ -42,7 +46,6 @@ project/
 ```bash
 git clone https://github.com/username/Codon_Optimization.git
 cd Codon_Optimization
-pip install -r requirements.txt
 ```
 
 ---
@@ -59,7 +62,8 @@ python train.py \
     --epoch 200 \
     --batchsize 512 \
     --lambda_codon 1.0 \
-    --lambda_mfe 0.5
+    --lambda_mfe 0.5 \
+    --device 0
 ```
 
 ---
@@ -176,18 +180,6 @@ python train.py --contrastive_pt --epoch_pt 50
 
 ---
 
-## 📌 Reproducibility
-
-```bash
-python train.py --seed 1
-```
-
----
-
-## 📜 License
-
-Specify your license here.
-
 ---
 
 ## 📖 Citation
@@ -195,5 +187,5 @@ Specify your license here.
 If you use this work, please cite:
 
 ```
-Your paper citation here
+paper currently under review
 ```
